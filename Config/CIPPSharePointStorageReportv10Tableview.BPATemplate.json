@@ -1,0 +1,65 @@
+{
+  "style": "Table",
+  "Fields": [
+    {
+      "UseExistingInfo": false,
+      "FrontendFields": [
+        {
+          "name": "Total Storage (GB)",
+          "value": "TotalStorageGB",
+          "formatter": "string"
+        },
+        {
+          "name": "Used Storage (GB)",
+          "value": "UsedStorageGB",
+          "formatter": "string"
+        },
+        {
+          "name": "Remaining Storage (GB)",
+          "value": "RemainingStorageGB",
+          "formatter": "string"
+        },
+        {
+          "name": "Percentage Used",
+          "value": "PercentageUsed",
+          "formatter": "math",
+          "showAs": "percentage"
+        }
+      ],
+      "name": "SharepointStorage",
+      "API": "Graph",
+      "URL": "https://graph.microsoft.com/beta/admin/sharepoint/settings",
+      "Parameters": {
+        "asApp": "True"
+      },
+      "ExtractFields": [
+        "storageQuota",
+        "storageUsed"
+      ],
+      "Transformations": [
+        {
+          "operation": "calculate",
+          "name": "TotalStorageGB",
+          "expression": "storageQuota / 1073741824"
+        },
+        {
+          "operation": "calculate",
+          "name": "UsedStorageGB",
+          "expression": "storageUsed / 1073741824"
+        },
+        {
+          "operation": "calculate",
+          "name": "RemainingStorageGB",
+          "expression": "(storageQuota - storageUsed) / 1073741824"
+        },
+        {
+          "operation": "calculate",
+          "name": "PercentageUsed",
+          "expression": "(storageUsed / storageQuota) * 100"
+        }
+      ],
+      "StoreAs": "JSON"
+    }
+  ],
+  "name": "CIPP SharePoint Storage Report v1.0 - Table view"
+}
