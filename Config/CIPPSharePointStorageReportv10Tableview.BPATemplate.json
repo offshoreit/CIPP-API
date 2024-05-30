@@ -5,61 +5,54 @@
       "UseExistingInfo": false,
       "FrontendFields": [
         {
-          "name": "Total Storage (GB)",
-          "value": "TotalStorageGB",
+          "name": "Site Name",
+          "value": "SiteName",
           "formatter": "string"
         },
         {
-          "name": "Used Storage (GB)",
-          "value": "UsedStorageGB",
+          "name": "Site Allocated Storage (GB)",
+          "value": "SiteAllocatedStorageGB",
           "formatter": "string"
         },
         {
-          "name": "Remaining Storage (GB)",
-          "value": "RemainingStorageGB",
+          "name": "Usage Storage (GB)",
+          "value": "UsageStorageGB",
           "formatter": "string"
         },
         {
-          "name": "Percentage Used",
-          "value": "PercentageUsed",
+          "name": "Usage Storage Percentage",
+          "value": "UsageStoragePercentage",
           "formatter": "math",
           "showAs": "percentage"
         }
       ],
-      "name": "SharepointStorage",
+      "name": "SharePointSiteUsage",
       "API": "Graph",
-      "URL": "https://graph.microsoft.com/beta/admin/sharepoint/settings",
-      "Parameters": {
-        "asApp": "True"
-      },
+      "URL": "https://graph.microsoft.com/v1.0/reports/getSharePointSiteUsageDetail(period='D30')",
       "ExtractFields": [
-        "storageQuota",
-        "storageUsed"
+        "SiteName",
+        "AllocatedStorageByte",
+        "UsedStorageByte"
       ],
       "Transformations": [
         {
           "operation": "calculate",
-          "name": "TotalStorageGB",
-          "expression": "storageQuota / 1073741824"
+          "name": "SiteAllocatedStorageGB",
+          "expression": "AllocatedStorageByte / 1073741824"
         },
         {
           "operation": "calculate",
-          "name": "UsedStorageGB",
-          "expression": "storageUsed / 1073741824"
+          "name": "UsageStorageGB",
+          "expression": "UsedStorageByte / 1073741824"
         },
         {
           "operation": "calculate",
-          "name": "RemainingStorageGB",
-          "expression": "(storageQuota - storageUsed) / 1073741824"
-        },
-        {
-          "operation": "calculate",
-          "name": "PercentageUsed",
-          "expression": "(storageUsed / storageQuota) * 100"
+          "name": "UsageStoragePercentage",
+          "expression": "(UsedStorageByte / AllocatedStorageByte) * 100"
         }
       ],
       "StoreAs": "JSON"
     }
   ],
-  "name": "CIPP SharePoint Storage Report v1.0 - Table view"
+  "name": "CIPP SharePoint Site Usage Report v1.0 - Table view"
 }
