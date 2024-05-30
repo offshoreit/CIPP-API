@@ -1,0 +1,43 @@
+{
+  "name": "CIPP SharePoint Site Usage Report v1.0",
+  "style": "Table",
+  "Fields": [
+    {
+      "name": "SharepointSiteUsage",
+      "UseExistingInfo": false,
+      "FrontendFields": [
+        {
+          "name": "Site URL",
+          "value": "Site URL",
+          "formatter": "string"
+        },
+        {
+          "name": "Storage Used (GB)",
+          "value": "Storage Used (GB)",
+          "formatter": "string"
+        },
+        {
+          "name": "Storage Allocated (GB)",
+          "value": "Storage Allocated (GB)",
+          "formatter": "string"
+        },
+        {
+          "name": "Storage Usage Percentage",
+          "value": "Storage Usage Percentage",
+          "formatter": "math"
+        }
+      ],
+      "StoreAs": "string",
+      "API": "Graph",
+      "ExtractFields": [
+        "Site URL",
+        "Storage Used (Byte)",
+        "Storage Allocated (Byte)"
+      ],
+      "parameters": {
+        "asApp": true
+      },
+      "URL": "https://graph.microsoft.com/v1.0/reports/getSharePointSiteUsageDetail(period='D30')"
+    }
+  ]
+}
