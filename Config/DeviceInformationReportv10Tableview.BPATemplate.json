@@ -4,73 +4,72 @@
   "Fields": [
     {
       "name": "deviceId",
-      "StoreAs": "string",
-      "UseExistingInfo": true,
+      "UseExistingInfo": false,
       "FrontendFields": [
         {
-          "formatter": "string",
           "name": "deviceId",
-          "value": "deviceId"
+          "value": "deviceId",
+          "formatter": "string"
         }
-      ]
+      ],
+      "API": "Graph",
+      "parameters": {
+        "asApp": true
+      },
+      "URL": "https://graph.microsoft.com/v1.0/devices"
     },
     {
       "name": "DisplayName",
-      "StoreAs": "string",
       "UseExistingInfo": true,
       "FrontendFields": [
         {
-          "formatter": "string",
           "name": "DisplayName",
-          "value": "DisplayName"
+          "value": "DisplayName",
+          "formatter": "string"
         }
       ]
     },
     {
       "name": "profileType",
-      "StoreAs": "string",
       "UseExistingInfo": true,
       "FrontendFields": [
         {
-          "formatter": "string",
           "name": "profileType",
-          "value": "profileType"
+          "value": "profileType",
+          "formatter": "string"
         }
       ]
     },
     {
       "name": "registrationDateTime",
-      "StoreAs": "datetime",
       "UseExistingInfo": true,
       "FrontendFields": [
         {
-          "formatter": "datetime",
           "name": "registrationDateTime",
-          "value": "registrationDateTime"
+          "value": "registrationDateTime",
+          "formatter": "datetime"
         }
       ]
     },
     {
       "name": "deviceOwnership",
-      "StoreAs": "string",
       "UseExistingInfo": true,
       "FrontendFields": [
         {
-          "formatter": "string",
           "name": "deviceOwnership",
-          "value": "deviceOwnership"
+          "value": "deviceOwnership",
+          "formatter": "string"
         }
       ]
     },
     {
       "name": "enrollmentType",
-      "StoreAs": "string",
       "UseExistingInfo": true,
       "FrontendFields": [
         {
-          "formatter": "string",
           "name": "enrollmentType",
-          "value": "enrollmentType"
+          "value": "enrollmentType",
+          "formatter": "string"
         }
       ]
     }
