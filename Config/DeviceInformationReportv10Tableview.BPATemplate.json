@@ -1,0 +1,78 @@
+{
+  "name": "Device Information Report v1.0 - Table view",
+  "style": "Table",
+  "Fields": [
+    {
+      "name": "deviceId",
+      "StoreAs": "string",
+      "UseExistingInfo": true,
+      "FrontendFields": [
+        {
+          "formatter": "string",
+          "name": "deviceId",
+          "value": "deviceId"
+        }
+      ]
+    },
+    {
+      "name": "DisplayName",
+      "StoreAs": "string",
+      "UseExistingInfo": true,
+      "FrontendFields": [
+        {
+          "formatter": "string",
+          "name": "DisplayName",
+          "value": "DisplayName"
+        }
+      ]
+    },
+    {
+      "name": "profileType",
+      "StoreAs": "string",
+      "UseExistingInfo": true,
+      "FrontendFields": [
+        {
+          "formatter": "string",
+          "name": "profileType",
+          "value": "profileType"
+        }
+      ]
+    },
+    {
+      "name": "registrationDateTime",
+      "StoreAs": "datetime",
+      "UseExistingInfo": true,
+      "FrontendFields": [
+        {
+          "formatter": "datetime",
+          "name": "registrationDateTime",
+          "value": "registrationDateTime"
+        }
+      ]
+    },
+    {
+      "name": "deviceOwnership",
+      "StoreAs": "string",
+      "UseExistingInfo": true,
+      "FrontendFields": [
+        {
+          "formatter": "string",
+          "name": "deviceOwnership",
+          "value": "deviceOwnership"
+        }
+      ]
+    },
+    {
+      "name": "enrollmentType",
+      "StoreAs": "string",
+      "UseExistingInfo": true,
+      "FrontendFields": [
+        {
+          "formatter": "string",
+          "name": "enrollmentType",
+          "value": "enrollmentType"
+        }
+      ]
+    }
+  ]
+}
