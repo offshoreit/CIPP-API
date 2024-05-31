@@ -12,9 +12,11 @@
           "formatter": "string"
         }
       ],
+      "StoreAs": "JSON",
       "API": "Graph",
       "parameters": {
-        "asApp": true
+        "asApp": true,
+        "newKey": "New Value"
       },
       "URL": "https://graph.microsoft.com/v1.0/devices"
     },
@@ -47,7 +49,7 @@
         {
           "name": "registrationDateTime",
           "value": "registrationDateTime",
-          "formatter": "datetime"
+          "formatter": "string"
         }
       ]
     },
